@@ -1,53 +1,13 @@
-# A1.1 - Instalación y configuración de servidores web
+# saluda.php
 
-## Tarea a realizar en grupos de 4 alumnos
+La aplicación PHP que implementé tiene como objetivo mostrar un saludo y una imagen en función de la hora del día. Su funcionamiento se basa en lo siguiente:
 
-## Descripción
+1. **Detección de la hora**: El script obtiene la hora actual del servidor utilizando la función `date("H")`, que devuelve la hora en formato de 24 horas. En función de esta hora, se determina si es por la mañana (entre las 6 y las 12), por la tarde (entre las 12 y las 18) o por la noche (entre las 18 y las 6 del día siguiente).
 
-Somos los administradores de sistemas de una empresa y tenemos que preparar los entornos de desarrollo (Windows) y producción (Linux) para una aplicación PHP de uno de nuestros clientes. Realiza todas las tareas necesarias para llevar a cabo este trabajo, comprobando que la aplicación del cliente se ejecuta correctamente en ambos entornos. Deberás preparar, de forma individual, cada uno de dichos entornos, pero a su vez estarás integrado en un grupo de alumnos que conjuntamente tendrán que informarse, escoger las herramientas software que consideren oportunas y documentar todo el proceso en un documento compartido de Google Docs.
+2. **Selección del mensaje y momento del día**: Dependiendo de la hora, se define un mensaje de saludo. Si es por la mañana, se muestra "Buenos días"; si es por la tarde, "Buenas tardes"; y si es por la noche, "Buenas noches".
 
-## Requisitos previos
+3. **Consulta a la base de datos**: Una vez que se determina si es mañana, tarde o noche, el script realiza una consulta a una base de datos MariaDB. En esta base de datos, hay una tabla llamada `imagenes_horario` que contiene los nombres de las imágenes correspondientes a cada momento del día (por ejemplo, una imagen para la mañana, otra para la tarde y otra para la noche). El script busca la imagen apropiada para el momento del día.
 
-- Disponer de dos máquinas virtuales: 
-  - Una con **Windows** (entorno de desarrollo).
-  - Otra con **Linux** (entorno de producción).
+4. **Generación de la página web**: Finalmente, el script genera una página HTML que muestra el saludo correspondiente y la imagen relacionada con ese momento del día. La imagen se carga desde una carpeta de imágenes en el servidor.
 
-## Entrega
-
-Un documento PDF conjunto (recomendable usar Google Docs) por todos los miembros del grupo donde se incluyan los siguientes apartados:
-
-1. **Descripción del proyecto**:
-   - Breve introducción al proyecto y objetivos.
-
-2. **Análisis de las herramientas seleccionadas**:
-   - Justificación de las herramientas elegidas para los servidores web, bases de datos, seguridad, etc., y por qué fueron las más adecuadas para este proyecto.
-
-3. **Procedimiento detallado**:
-   - Pasos realizados para configurar el entorno de desarrollo y producción, desde la instalación hasta la configuración.
-
-4. **Distribución de tareas**:
-   - Explicar cómo se dividió el trabajo entre los miembros del grupo y cómo se coordinó la colaboración.
-
-5. **Problemas y soluciones**:
-   - Resumir los problemas técnicos más importantes que enfrentaron y cómo los resolvieron como grupo.
-
-6. **Conclusiones y mejoras**:
-   - Reflexión sobre el proceso, qué aprendieron, y sugerencias de mejora.
-
-Además, se debe entregar un documento PDF individual donde se incluyan las capturas que muestren que los entornos personales de cada alumno funcionan correctamente y pueden ejecutar la aplicación.
-
-**Defensa individual y en persona** respecto al trabajo realizado.
-
-## Resultados de aprendizaje vinculados
-
-**RA1** - Prepara el entorno de desarrollo y los servidores de aplicaciones Web instalando e integrando las funcionalidades necesarias.
-
-## Criterios de evaluación relacionados
-
-- Se ha descrito e identificado el software necesario para realizar el trabajo solicitado.
-- Se han descrito e identificado las diferentes tecnologías empleadas.
-- Se han instalado y configurado servicios necesarios.
-- Se han reconocido las posibilidades de procesamiento en los entornos cliente y servidor.
-- Se han añadido y configurado los componentes y módulos necesarios para el procesamiento de código en el servidor.
-- Se ha establecido y verificado la seguridad en los accesos al servidor.
-- Se han documentado los procedimientos realizados con el objetivo de que, en el futuro, nosotros u otros compañeros puedan realizar este mismo trabajo con menor esfuerzo.
+La aplicación adapta dinámicamente tanto el saludo como la imagen mostrada a los visitantes en función de la hora actual, consultando la base de datos para obtener los nombres de las imágenes que deben mostrarse en cada franja horaria.
