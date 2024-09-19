@@ -1,6 +1,6 @@
 # saluda.php
 
-La aplicación PHP que implementé tiene como objetivo mostrar un saludo y una imagen en función de la hora del día. Su funcionamiento se basa en lo siguiente:
+Esta aplicación PHP tiene como objetivo mostrar un saludo y una imagen en función de la hora del día. Su funcionamiento se basa en lo siguiente:
 
 1. **Detección de la hora**: El script obtiene la hora actual del servidor utilizando la función `date("H")`, que devuelve la hora en formato de 24 horas. En función de esta hora, se determina si es por la mañana (entre las 6 y las 12), por la tarde (entre las 12 y las 18) o por la noche (entre las 18 y las 6 del día siguiente).
 
